@@ -1,0 +1,101 @@
+/* HomePage.css */
+
+/* Общие стили */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .home-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  /* Герой */
+  .hero {
+    background-color: #f2f2f2;
+    padding: 80px 20px;
+    text-align: center;
+  }
+  
+  .hero h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+  
+  .hero p {
+    font-size: 18px;
+    color: #666;
+  }
+  
+  /* Таблица курсов валют */
+  .currency-table {
+    margin-top: 40px;
+  }
+  
+  .currency-table table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .currency-table th,
+  .currency-table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  /* График исторических курсов */
+  .currency-chart {
+    margin-top: 40px;
+  }
+  
+  /* Новости и обновления */
+  .news-updates {
+    margin-top: 40px;
+  }
+  
+  /* Конвертер валют */
+  .currency-converter {
+    margin-top: 40px;
+  }
+  
+  /* Преимущества */
+  .benefits {
+    margin-top: 40px;
+  }
+  
+  .benefits ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .benefits li {
+    text-align: center;
+  }
+  
+  /* Форма подписки */
+  .subscribe {
+    margin-top: 40px;
+    text-align: center;
+  }
+  
+  .subscribe input {
+    padding: 10px;
+    width: 300px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  .subscribe button {
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
