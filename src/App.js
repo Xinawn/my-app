@@ -1,6 +1,6 @@
 import Navbar from "./components/navbar/Navbar";
 import HomePage from "./components/Home/HomePage";
-import CrypoCyrrency from "./Crypto/CryptoCurrency";
+import CrypoCyrrency from "./components/Crypto/CryptoCurrency";
 import "./index.css";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 

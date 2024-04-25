@@ -1,5 +1,6 @@
 import React from "react";
 import "./HomePage.css";
+import CurrencyTable from "../../API/CurrencyTable";
 import {
   LineChart,
   Line,
@@ -38,7 +39,7 @@ const HomePage = () => {
               <th>Изменения</th>
             </tr>
           </thead>
-          <tbody>{/* Render currency rates */}</tbody>
+          <tbody></tbody>
         </table>
       </div>
 
@@ -62,6 +63,7 @@ const HomePage = () => {
 
       <div className="currency-converter">
         <h2>Конвентор валют</h2>
+        <CurrencyTable />
         {/* Render currency converter */} 
       </div>
 
