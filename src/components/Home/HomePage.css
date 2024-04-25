@@ -62,22 +62,6 @@ body {
     margin-top: 40px;
   }
   
-  /* Преимущества */
-  .benefits {
-    margin-top: 40px;
-  }
-  
-  .benefits ul {
-    list-style-type: none;
-    padding: 0;
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .benefits li {
-    text-align: center;
-  }
-  
   /* Форма подписки */
   .subscribe {
     margin-top: 40px;

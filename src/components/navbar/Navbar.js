@@ -23,13 +23,13 @@ const Navbar = () => {
               <a href="/">Главная</a>
             </li>
             <li>
-              <a href="##">О нас</a>
+              <a href="/about">О нас</a>
             </li>
             <li>
-              <a href="##">Курсы валют</a>
+              <a href="/currency">Курсы валют</a>
             </li>
             <li>
-              <a href="##">Криптовалюта</a>
+              <a href="/crypto">Криптовалюта</a>
             </li>
             <li>
               <a href="##">Связь</a>

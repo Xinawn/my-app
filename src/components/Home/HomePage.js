@@ -62,19 +62,7 @@ const HomePage = () => {
 
       <div className="currency-converter">
         <h2>Конвентор валют</h2>
-        {/* Render currency converter */}
-      </div>
-
-      <div className="benefits">
-        <h2>Why Choose Currency Tracker?</h2>
-        <ul>
-          <li>
-            <img src="icon1.png" alt="Benefit 1" />
-            <h3>Benefit 1</h3>
-            <p>Description of benefit 1.</p>
-          </li>
-          {/* Add more benefits */}
-        </ul>
+        {/* Render currency converter */} 
       </div>
 
       <div className="subscribe">

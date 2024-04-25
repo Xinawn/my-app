@@ -1,0 +1,29 @@
+/* Таблица курсов валют */
+.crypto-table {
+  margin-top: 40px;
+  /* padding: 10px; */
+}
+
+.crypto-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.crypto-table th,
+.crypto-table td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.crypto-currency-paper {
+    background-color: #fff;
+    padding: 8px;
+    text-align: center;
+    color: #666;
+  }
+  
+  .crypto-currency-paper.dark {
+    background-color: #1A2027;
+    color: #ccc;
+  }
