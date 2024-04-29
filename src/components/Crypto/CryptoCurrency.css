@@ -1,38 +1,8 @@
-/* Таблица курсов валют */
-.crypto-table {
-  /* margin-top: 40px; */
-  padding: 35px;
+.crypto-container {
+  margin-top: 20px; /* Отступ сверху для Container */
 }
 
-.crypto-table table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-.crypto-table th,
-.crypto-table td {
-  padding: 10px;
-  text-align: left;
-  border-bottom: 1px solid #ddd;
-}
-
-.crypto-currency-paper {
-    background-color: #fff;
-    padding: 5px;
-    /* text-align: center; */
-    color: #666;
-  }
-.crypto-currency-input {
+.select-conventor {
   display: flex;
-    background-color: #fff;
-    padding: 5px;
-    /* margin: 5px; */
-    align-items: center;
-    justify-content:space-evenly;
-    color: #666;
-  }
-  
-  .crypto-currency-paper.dark {
-    background-color: #1A2027;
-    color: #ccc;
-  }
+  justify-content: center;
+}
