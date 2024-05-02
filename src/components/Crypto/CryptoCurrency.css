@@ -6,3 +6,16 @@
   display: flex;
   justify-content: center;
 }
+
+.result {
+  text-align: center;
+}
+
+.currency-icon {
+  width: 25px;
+  height: 25px;
+}
+
+.table-name {
+  background-color: #f0f1f3;
+}
