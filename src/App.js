@@ -1,16 +1,11 @@
 import Navbar from "./components/navbar/Navbar";
 import HomePage from "./components/Home/HomePage";
 import CrypoCyrrency from "./components/Crypto/CryptoCurrency";
-import "./index.css";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import "./index.css";
 
 function App() {
   return (
-    // <div>
-    //   <Navbar />
-    //   {/* <HomePage /> */}
-    //   <Route path="/" exact component={HomePage} />
-    // </div>
     <Router>
     <Navbar />
     <Routes>
