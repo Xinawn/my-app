@@ -1,11 +1,7 @@
-import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import style from "./Navbar.module.css";
-import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
-import { Link } from 'react-router-dom';
-
 
 const Navbar = () => {
-  const [nav, setNav] = useState(false);
   return (
     <header className={style.header}>
       <div className="container">
@@ -14,30 +10,46 @@ const Navbar = () => {
             <span className={style.logo_text}>LIVE</span>
             <span className={style.logo_text}>CURRENCY</span>
           </Link>
-          <ul
-            className={
-              nav ? [style.menu, style.active].join(" ") : [style.menu]
-            }
-          >
+          <ul className={style.menu}>
             <li>
-              <a href="/">Главная</a>
+              <Link to="/">Главная</Link>
             </li>
             <li>
-              <a href="/about">О нас</a>
+              <Link to="/about">О нас</Link>
             </li>
             <li>
-              <a href="/currency">Курсы валют</a>
+              <Link to="/currency">Курсы валют</Link>
+              <ul className={style.submenu}>
+                <li>
+                  <Link to="/currency/nbrb">Курсы НБРБ</Link>
+                </li>
+                <li>
+                  <Link to="/currency/bank">Курсы Банков</Link>
+                </li>
+              </ul>
             </li>
             <li>
-              <a href="/crypto">Криптовалюта</a>
+              <Link to="/converter">Конвентор</Link>
             </li>
             <li>
-              <a href="##">Связь</a>
+              <Link to="#">Криптовалюта</Link>
+              <ul className={style.submenu}>
+                <li>
+                  <Link to="/crypto">Курсы и конвертор</Link>
+                </li>
+                <li>
+                  <Link to="/crypto/table">Курсы криптовалют</Link>
+                </li>
+                <li>
+                  <Link to="/crypto/converter">Конвертор криптовалют</Link>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <Link to="#">Связь</Link>
             </li>
           </ul>
-          <div onClick={() => setNav(!nav)} className={style.mobile_btn}>
-            {nav ? <AiOutlineClose size={25} /> : <AiOutlineMenu size={25} />}
-          </div>
+          <div className={style.mobile_btn}>{/* Mobile button code */}</div>
         </div>
       </div>
     </header>

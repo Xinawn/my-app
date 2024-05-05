@@ -23,7 +23,7 @@ export default function CryptoTable() {
             name: coin.CoinInfo.Name,
             fullName: coin.CoinInfo.FullName,
             imageUrl: `https://www.cryptocompare.com/${coin.CoinInfo.ImageUrl}`,
-            price: Number(coin.RAW?.USD?.PRICE)?.toFixed(7) || 0,
+            price: Number(coin.RAW?.USD?.PRICE)?.toFixed(6) || 0,
             volume24hour: parseInt(coin.RAW?.USD?.VOLUME24HOURTO) || 0,
           };
           return obj;
@@ -48,24 +48,30 @@ export default function CryptoTable() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {allCoins.map((coin) => (
-            <TableRow
-              key={coin.name}
-              sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-            >
-              <TableCell>
-                <img
-                  src={coin.imageUrl}
-                  alt="Coin icon"
-                  className="currency-icon"
-                />
-              </TableCell>
-              <TableCell align="left">{coin.name}</TableCell>
-              <TableCell align="left">{coin.fullName}</TableCell>
-              <TableCell align="left">$ {coin.price}</TableCell>
-              <TableCell align="left">$ {coin.volume24hour}</TableCell>
+          {allCoins.length > 0 ? (
+            allCoins.map((coin) => (
+              <TableRow
+                key={coin.name}
+                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+              >
+                <TableCell>
+                  <img
+                    src={coin.imageUrl}
+                    alt="Coin icon"
+                    className="currency-icon"
+                  />
+                </TableCell>
+                <TableCell align="left">{coin.name}</TableCell>
+                <TableCell align="left">{coin.fullName}</TableCell>
+                <TableCell align="left">$ {coin.price}</TableCell>
+                <TableCell align="left">$ {coin.volume24hour}</TableCell>
+              </TableRow>
+            ))
+          ) : (
+            <TableRow>
+              <TableCell colSpan={5}>Загрузка...</TableCell>
             </TableRow>
-          ))}
+          )}
         </TableBody>
       </Table>
     </TableContainer>
