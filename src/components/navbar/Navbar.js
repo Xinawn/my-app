@@ -1,7 +1,10 @@
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
 import style from "./Navbar.module.css";
+import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
+  const [nav, setNav] = useState(false);
   return (
     <header className={style.header}>
       <div className="container">
@@ -10,46 +13,49 @@ const Navbar = () => {
             <span className={style.logo_text}>LIVE</span>
             <span className={style.logo_text}>CURRENCY</span>
           </Link>
-          <ul className={style.menu}>
+          <ul
+            className={
+              nav ? [style.menu, style.active].join(" ") : [style.menu]
+            }
+          >
             <li>
-              <Link to="/">Главная</Link>
+              <a href="/">Главная</a>
             </li>
             <li>
-              <Link to="/about">О нас</Link>
+              <a href="/about">О нас</a>
             </li>
             <li>
-              <Link to="/currency">Курсы валют</Link>
+              <a href="/currency">Курсы валют</a>
               <ul className={style.submenu}>
                 <li>
-                  <Link to="/currency/nbrb">Курсы НБРБ</Link>
+                  <a href="/currency/nbrb">Курсы НБРБ</a>
                 </li>
                 <li>
-                  <Link to="/currency/bank">Курсы Банков</Link>
+                  <a href="/currency/bank">Курсы Банков</a>
                 </li>
               </ul>
             </li>
             <li>
-              <Link to="/converter">Конвентор</Link>
-            </li>
-            <li>
-              <Link to="#">Криптовалюта</Link>
+              <a href="/crypto">Криптовалюта</a>
               <ul className={style.submenu}>
                 <li>
-                  <Link to="/crypto">Курсы и конвертор</Link>
+                  <a href="/crypto">Курсы и конвертор</a>
                 </li>
                 <li>
-                  <Link to="/crypto/table">Курсы криптовалют</Link>
+                  <a href="/crypto/table">Курсы криптовалют</a>
                 </li>
                 <li>
-                  <Link to="/crypto/converter">Конвертор криптовалют</Link>
+                  <a href="/crypto/converter">Конвертор криптовалют</a>
                 </li>
               </ul>
             </li>
             <li>
-              <Link to="#">Связь</Link>
+              <a href="##">Связь</a>
             </li>
           </ul>
-          <div className={style.mobile_btn}>{/* Mobile button code */}</div>
+          <div onClick={() => setNav(!nav)} className={style.mobile_btn}>
+            {nav ? <AiOutlineClose size={25} /> : <AiOutlineMenu size={25} />}
+          </div>
         </div>
       </div>
     </header>
