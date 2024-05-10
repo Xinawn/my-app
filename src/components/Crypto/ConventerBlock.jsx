@@ -1,31 +1,128 @@
+// import React from "react";
+// import Paper from "@mui/material/Paper";
+// import TextField from "@mui/material/TextField";
+// import InputLabel from "@mui/material/InputLabel";
+// import MenuItem from "@mui/material/MenuItem";
+// import FormControl from "@mui/material/FormControl";
+// import "./CryptoCurrency.css";
+
+// const currencies = [
+//   {
+//     value: "USD",
+//     label: "$",
+//   },
+//   {
+//     value: "EUR",
+//     label: "€",
+//   },
+//   {
+//     value: "BTC",
+//     label: "฿",
+//   },
+//   {
+//     value: "JPY",
+//     label: "¥",
+//   },
+// ];
+
+// export default function ConventerBlock() {
+//   return (
+//     <Paper>
+//       <div className="select-conventor">
+//         <FormControl sx={{ m: 1 }} variant="standard">
+//           <TextField
+//             id="outlined-basic"
+//             label="Сумма"
+//             helperText="Введите сумму"
+//           />
+//         </FormControl>
+//         <FormControl sx={{ m: 1 }} variant="standard">
+//           <InputLabel
+//             id="demo-customized-select-label"
+//             helperText="Please select your currency"
+//           ></InputLabel>
+//           <TextField
+//             id="outlined-select-currency"
+//             select
+//             label="Валюта"
+//             defaultValue="EUR"
+//             helperText="Выберите валюту"
+//           >
+//             {currencies.map((option) => (
+//               <MenuItem key={option.value} value={option.value}>
+//                 {option.label}
+//               </MenuItem>
+//             ))}
+//           </TextField>
+//         </FormControl>
+//       </div>
+//       <div className="select-conventor">
+//         <FormControl sx={{ m: 1 }} variant="standard">
+//           <TextField
+//             id="outlined-basic"
+//             label="Сумма"
+//             helperText="Введите сумму"
+//           />
+//         </FormControl>
+//         <FormControl sx={{ m: 1 }} variant="standard">
+//           <InputLabel
+//             id="demo-customized-select-label"
+//             helperText="Please select your currency"
+//           ></InputLabel>
+//           <TextField
+//             id="outlined-select-currency"
+//             select
+//             label="Валюта"
+//             defaultValue="EUR"
+//             helperText="Выберите валюту"
+//           >
+//             {currencies.map((option) => (
+//               <MenuItem key={option.value} value={option.value}>
+//                 {option.label}
+//               </MenuItem>
+//             ))}
+//           </TextField>
+//         </FormControl>
+//       </div>
+//     </Paper>
+//   );
+// }
+
+// CurrencyConverter.jsx
 import React from "react";
+import { observer } from "mobx-react";
 import Paper from "@mui/material/Paper";
 import TextField from "@mui/material/TextField";
-import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
+import currencyConverterStore from "../../stores/store";
 import "./CryptoCurrency.css";
 
-const currencies = [
-  {
-    value: "USD",
-    label: "$",
-  },
-  {
-    value: "EUR",
-    label: "€",
-  },
-  {
-    value: "BTC",
-    label: "฿",
-  },
-  {
-    value: "JPY",
-    label: "¥",
-  },
-];
+const CurrencyConverter = observer(() => {
+  const currencies = Object.keys(currencyConverterStore.rates);
 
-export default function ConventerBlock() {
+  const handleFromCurrencyChange = (event) => {
+    currencyConverterStore.setFromCurrency(event.target.value);
+  };
+
+  const handleToCurrencyChange = (event) => {
+    currencyConverterStore.setToCurrency(event.target.value);
+  };
+
+  const handleFromAmountChange = (event) => {
+    const amount = parseFloat(event.target.value);
+    if (!isNaN(amount)) {
+      currencyConverterStore.setFromAmount(amount);
+    }
+  };
+
+  const handleToAmountChange = (event) => {
+    const amount = parseFloat(event.target.value);
+    if (!isNaN(amount)) {
+      currencyConverterStore.setToAmount(amount);
+    }
+  };
+
   return (
     <Paper>
       <div className="select-conventor">
@@ -34,39 +131,24 @@ export default function ConventerBlock() {
             id="outlined-basic"
             label="Сумма"
             helperText="Введите сумму"
+            value={currencyConverterStore.fromAmount}
+            onChange={handleFromAmountChange}
           />
         </FormControl>
         <FormControl sx={{ m: 1 }} variant="standard">
-          <InputLabel
-            id="demo-customized-select-label"
-            helperText="Please select your currency"
-          ></InputLabel>
           <TextField
             id="outlined-select-currency"
             select
             label="Валюта"
-            defaultValue="EUR"
-            helperText="Выберите валюту"
+            value={currencyConverterStore.fromCurrency}
+            onChange={handleFromCurrencyChange}
           >
-            {currencies.map((option) => (
-              <MenuItem key={option.value} value={option.value}>
-                {option.label}
+            {currencies.map((currency) => (
+              <MenuItem key={currency} value={currency}>
+                {currency}
               </MenuItem>
             ))}
           </TextField>
-          {/* <FormControl fullWidth>
-      <InputLabel id="demo-simple-select-label">Age</InputLabel>
-      <Select
-        labelId="demo-simple-select-label"
-        id="demo-simple-select"
-        value={10}
-        label="Age"
-      >
-        <MenuItem value={10}>Ten</MenuItem>
-        <MenuItem value={20}>Twenty</MenuItem>
-        <MenuItem value={30}>Thirty</MenuItem>
-      </Select>
-    </FormControl> */}
         </FormControl>
       </div>
       <div className="select-conventor">
@@ -74,24 +156,21 @@ export default function ConventerBlock() {
           <TextField
             id="outlined-basic"
             label="Сумма"
-            helperText="Введите сумму"
+            value={currencyConverterStore.toAmount || currencyConverterStore.convertedAmount}
+            onChange={handleToAmountChange}
           />
         </FormControl>
         <FormControl sx={{ m: 1 }} variant="standard">
-          <InputLabel
-            id="demo-customized-select-label"
-            helperText="Please select your currency"
-          ></InputLabel>
           <TextField
             id="outlined-select-currency"
             select
             label="Валюта"
-            defaultValue="EUR"
-            helperText="Выберите валюту"
+            value={currencyConverterStore.toCurrency}
+            onChange={handleToCurrencyChange}
           >
-            {currencies.map((option) => (
-              <MenuItem key={option.value} value={option.value}>
-                {option.label}
+            {currencies.map((currency) => (
+              <MenuItem key={currency} value={currency}>
+                {currency}
               </MenuItem>
             ))}
           </TextField>
@@ -99,4 +178,6 @@ export default function ConventerBlock() {
       </div>
     </Paper>
   );
-}
+});
+
+export default CurrencyConverter;

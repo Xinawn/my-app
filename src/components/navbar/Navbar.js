@@ -22,7 +22,7 @@ const Navbar = () => {
               <a href="/">Главная</a>
             </li>
             <li>
-              <a href="/about">О нас</a>
+              <a href="/converter">Конвертер</a>
             </li>
             <li>
               <a href="/currency">Курсы валют</a>

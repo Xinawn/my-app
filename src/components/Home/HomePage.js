@@ -43,7 +43,7 @@ const HomePage = () => {
         </table>
       </div>
 
-      <div className="currency-chart">
+      {/* <div className="currency-chart">
         <h2>График изменения курсов валют</h2>
         <LineChart width={600} height={400} data={data}>
           <XAxis dataKey="name" />
@@ -54,7 +54,7 @@ const HomePage = () => {
           <Line type="monotone" dataKey="usd" stroke="#8884d8" />
           <Line type="monotone" dataKey="eur" stroke="#82ca9d" />
         </LineChart>
-      </div>
+      </div> */}
 
       <div className="news-updates">
         <h2>Последние новости и обновления</h2>
@@ -62,8 +62,8 @@ const HomePage = () => {
       </div>
 
       <div className="currency-converter">
-        <h2>Конвентор валют</h2>
-        <CurrencyTable />
+        <h2>Конвентер валют</h2>
+        {/* <CurrencyTable /> */}
         {/* Render currency converter */} 
       </div>
 
