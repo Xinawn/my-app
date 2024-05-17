@@ -1,26 +1,28 @@
 import React from "react";
 import "./HomePage.css";
-import CurrencyTable from "../../API/CurrencyTable";
-import {
-  LineChart,
-  Line,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  Legend,
-} from "recharts";
+import CurrencyConverter from "../Converter/CurrencyConverter";
+
+// import CurrencyTable from "./components/API/CurrencyTable";
+// import {
+//   LineChart,
+//   Line,
+//   XAxis,
+//   YAxis,
+//   CartesianGrid,
+//   Tooltip,
+//   Legend,
+// } from "recharts";
 
 const HomePage = () => {
-  const data = [
-    { name: "Jan", usd: 4000, eur: 2400 },
-    { name: "Feb", usd: 3000, eur: 1398 },
-    { name: "Mar", usd: 2000, eur: 9800 },
-    { name: "Apr", usd: 2780, eur: 3908 },
-    { name: "May", usd: 1890, eur: 4800 },
-    { name: "Jun", usd: 2390, eur: 3800 },
-    { name: "Jul", usd: 3490, eur: 4300 },
-  ];
+  // const data = [
+  //   { name: "Jan", usd: 4000, eur: 2400 },
+  //   { name: "Feb", usd: 3000, eur: 1398 },
+  //   { name: "Mar", usd: 2000, eur: 9800 },
+  //   { name: "Apr", usd: 2780, eur: 3908 },
+  //   { name: "May", usd: 1890, eur: 4800 },
+  //   { name: "Jun", usd: 2390, eur: 3800 },
+  //   { name: "Jul", usd: 3490, eur: 4300 },
+  // ];
 
   return (
     <div className="home-page">
@@ -61,10 +63,9 @@ const HomePage = () => {
         {/* Render news and updates */}
       </div>
 
-      <div className="currency-converter">
-        <h2>Конвентер валют</h2>
-        {/* <CurrencyTable /> */}
-        {/* Render currency converter */} 
+      <div className="home-converter">
+        {/* <h2>Конвентер валют</h2> */}
+        <CurrencyConverter/>
       </div>
 
       <div className="subscribe">

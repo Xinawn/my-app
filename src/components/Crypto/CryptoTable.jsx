@@ -36,44 +36,46 @@ export default function CryptoTable() {
   }, []);
 
   return (
-    <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 650 }} aria-label="simple table">
-        <TableHead>
-          <TableRow className="table-name">
-            <TableCell align="left"></TableCell>
-            <TableCell align="left">Имя</TableCell>
-            <TableCell align="left">Полное Имя</TableCell>
-            <TableCell align="left">Стоимость</TableCell>
-            <TableCell align="left">Объем (24 часа)</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {allCoins.length > 0 ? (
-            allCoins.map((coin) => (
-              <TableRow
-                key={coin.name}
-                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-              >
-                <TableCell>
-                  <img
-                    src={coin.imageUrl}
-                    alt="Coin icon"
-                    className="currency-icon"
-                  />
-                </TableCell>
-                <TableCell align="left">{coin.name}</TableCell>
-                <TableCell align="left">{coin.fullName}</TableCell>
-                <TableCell align="left">$ {coin.price}</TableCell>
-                <TableCell align="left">$ {coin.volume24hour}</TableCell>
-              </TableRow>
-            ))
-          ) : (
-            <TableRow>
-              <TableCell colSpan={5}>Загрузка...</TableCell>
+    <div>
+      <TableContainer component={Paper}>
+        <Table sx={{ minWidth: 650 }} aria-label="simple table">
+          <TableHead>
+            <TableRow className="table-name">
+              <TableCell align="left"></TableCell>
+              <TableCell align="left">Имя</TableCell>
+              <TableCell align="left">Полное Имя</TableCell>
+              <TableCell align="left">Стоимость</TableCell>
+              <TableCell align="left">Объем (24 часа)</TableCell>
             </TableRow>
-          )}
-        </TableBody>
-      </Table>
-    </TableContainer>
+          </TableHead>
+          <TableBody>
+            {allCoins.length > 0 ? (
+              allCoins.map((coin) => (
+                <TableRow
+                  key={coin.name}
+                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                >
+                  <TableCell>
+                    <img
+                      src={coin.imageUrl}
+                      alt="Coin icon"
+                      className="currency-icon"
+                    />
+                  </TableCell>
+                  <TableCell align="left">{coin.name}</TableCell>
+                  <TableCell align="left">{coin.fullName}</TableCell>
+                  <TableCell align="left">$ {coin.price}</TableCell>
+                  <TableCell align="left">$ {coin.volume24hour}</TableCell>
+                </TableRow>
+              ))
+            ) : (
+              <TableRow>
+                <TableCell colSpan={5}>Загрузка...</TableCell>
+              </TableRow>
+            )}
+          </TableBody>
+        </Table>
+      </TableContainer>
+    </div>
   );
 }

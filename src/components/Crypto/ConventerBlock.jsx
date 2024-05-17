@@ -95,10 +95,10 @@ import Paper from "@mui/material/Paper";
 import TextField from "@mui/material/TextField";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
-import currencyConverterStore from "../../stores/store";
+import currencyConverterStore from "../stores/store";
 import "./CryptoCurrency.css";
 
-const CurrencyConverter = observer(() => {
+const CurrencyConverter = observer(() => {  
   const currencies = Object.keys(currencyConverterStore.rates);
 
   const handleFromCurrencyChange = (event) => {

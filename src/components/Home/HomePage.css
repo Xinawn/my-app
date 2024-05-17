@@ -9,7 +9,7 @@ body {
   
   .home-page {
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 0 auto 0;
     padding: 20px;
   }
   
@@ -58,8 +58,9 @@ body {
   }
   
   /* Конвертер валют */
-  .currency-converter {
+  .home-converter {
     margin-top: 40px;
+    margin-right: 20px;
   }
   
   /* Форма подписки */

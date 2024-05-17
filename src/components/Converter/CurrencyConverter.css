@@ -1,0 +1,35 @@
+.currency-converter {
+  width: 400px;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.currency-selection {
+  margin-top: 15px;
+  margin-bottom: 20px;
+}
+
+.currency-selection label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.currency-selection select {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.amount-input {
+  margin-bottom: 20px;
+}
+
+.converted-amount {
+  font-weight: bold;
+  margin-top: 20px;
+}
