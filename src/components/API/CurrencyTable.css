@@ -1,51 +1,47 @@
-.container-table {
-  width: 400px;
-  margin: 0 auto;
-}
-.input-amount,
-.input-from,
-.input-to {
-  margin-bottom: 20px;
-}
-input,
-select {
-  width: 100%;
-  padding: 10px;
-}
-label {
-  display: block;
-  margin-bottom: 5px;
-}
-select {
-  background: #fff;
-  border: 1px solid #ccc;
-}
-.btn {
-  background: blue;
-  color: white;
-  padding: 0.5rem 1rem;
-  border: none;
-  cursor: pointer;
-}
-.btn:hover {
-  background: lightblue;
-}
-.output {
-  margin-top: 20px;
+.currency-table {
+  margin: 20px auto;
+  width: 80%;
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
 }
 
-.currency-table {
-  margin-top: 40px;
+.currency-table h2 {
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 .currency-table table {
+  margin-top: 20px;
   width: 100%;
-  border-collapse: collapse;
+  border: 1px solid #ddd;
 }
 
 .currency-table th,
 .currency-table td {
-  padding: 10px;
-  text-align: left;
-  border-bottom: 1px solid #ddd;
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  text-align: center;
+  cursor: pointer;
+}
+
+.currency-table th {
+  background-color: rgb(211, 127, 255);
+  font-weight: bold;
+}
+
+.currency-table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.currency-table tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+.currency-table tbody tr td {
+  transition: background-color 0.3s;
+}
+
+.currency-table tbody tr:first-of-type td {
+  font-weight: bold;
+  background-color: #e9ecef;
 }

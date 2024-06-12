@@ -6,25 +6,6 @@
 // import FormControl from "@mui/material/FormControl";
 // import "./CryptoCurrency.css";
 
-// const currencies = [
-//   {
-//     value: "USD",
-//     label: "$",
-//   },
-//   {
-//     value: "EUR",
-//     label: "€",
-//   },
-//   {
-//     value: "BTC",
-//     label: "฿",
-//   },
-//   {
-//     value: "JPY",
-//     label: "¥",
-//   },
-// ];
-
 // export default function ConventerBlock() {
 //   return (
 //     <Paper>
@@ -88,50 +69,132 @@
 //   );
 // }
 
-// CurrencyConverter.jsx
+// // CurrencyConverter.jsx
+// import React from "react";
+// import { observer } from "mobx-react";
+// import Paper from "@mui/material/Paper";
+// import TextField from "@mui/material/TextField";
+// import MenuItem from "@mui/material/MenuItem";
+// import FormControl from "@mui/material/FormControl";
+// import currencyConverterStore from "../stores/store";
+// import "./CryptoCurrency.css";
+
+// const CurrencyConverter = observer(() => {
+//   const currencies = Object.keys(currencyConverterStore.rates);
+
+//   const handleFromCurrencyChange = (event) => {
+//     currencyConverterStore.setFromCurrency(event.target.value);
+//   };
+
+//   const handleToCurrencyChange = (event) => {
+//     currencyConverterStore.setToCurrency(event.target.value);
+//   };
+
+//   const handleFromAmountChange = (event) => {
+//     const amount = parseFloat(event.target.value);
+//     if (!isNaN(amount)) {
+//       currencyConverterStore.setFromAmount(amount);
+//     }
+//   };
+
+//   const handleToAmountChange = (event) => {
+//     const amount = parseFloat(event.target.value);
+//     if (!isNaN(amount)) {
+//       currencyConverterStore.setToAmount(amount);
+//     }
+//   };
+
+//   return (
+//     <Paper>
+//       <div className="select-conventor">
+//         <FormControl sx={{ m: 1 }} variant="standard">
+//           <TextField
+//             id="outlined-basic"
+//             label="Сумма"
+//             helperText="Введите сумму"
+//             value={currencyConverterStore.fromAmount}
+//             onChange={handleFromAmountChange}
+//           />
+//         </FormControl>
+//         <FormControl sx={{ m: 1 }} variant="standard">
+//           <TextField
+//             id="outlined-select-currency"
+//             select
+//             label="Валюта"
+//             value={currencyConverterStore.fromCurrency}
+//             onChange={handleFromCurrencyChange}
+//           >
+//             {currencies.map((currency) => (
+//               <MenuItem key={currency} value={currency}>
+//                 {currency}
+//               </MenuItem>
+//             ))}
+//           </TextField>
+//         </FormControl>
+//       </div>
+//       <div className="select-conventor">
+//         <FormControl sx={{ m: 1 }} variant="standard">
+//           <TextField
+//             id="outlined-basic"
+//             label="Сумма"
+//             value={currencyConverterStore.toAmount || currencyConverterStore.convertedAmount}
+//             onChange={handleToAmountChange}
+//           />
+//         </FormControl>
+//         <FormControl sx={{ m: 1 }} variant="standard">
+//           <TextField
+//             id="outlined-select-currency"
+//             select
+//             label="Валюта"
+//             value={currencyConverterStore.toCurrency}
+//             onChange={handleToCurrencyChange}
+//           >
+//             {currencies.map((currency) => (
+//               <MenuItem key={currency} value={currency}>
+//                 {currency}
+//               </MenuItem>
+//             ))}
+//           </TextField>
+//         </FormControl>
+//       </div>
+//     </Paper>
+//   );
+// });
+
+// export default CurrencyConverter;
+
 import React from "react";
-import { observer } from "mobx-react";
+import { observer } from "mobx-react-lite";
 import Paper from "@mui/material/Paper";
 import TextField from "@mui/material/TextField";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
-import currencyConverterStore from "../stores/store";
+import cryptoStore from "../stores/cryptoStore";
 import "./CryptoCurrency.css";
 
-const CurrencyConverter = observer(() => {  
-  const currencies = Object.keys(currencyConverterStore.rates);
-
-  const handleFromCurrencyChange = (event) => {
-    currencyConverterStore.setFromCurrency(event.target.value);
+const ConventerBlock = observer(() => {
+  const handleFromAmountChange = (e) => {
+    cryptoStore.setFromAmount(Number(e.target.value));
   };
 
-  const handleToCurrencyChange = (event) => {
-    currencyConverterStore.setToCurrency(event.target.value);
+  const handleFromCurrencyChange = (e) => {
+    cryptoStore.setFromCurrency(e.target.value);
   };
 
-  const handleFromAmountChange = (event) => {
-    const amount = parseFloat(event.target.value);
-    if (!isNaN(amount)) {
-      currencyConverterStore.setFromAmount(amount);
-    }
+  const handleToCurrencyChange = (e) => {
+    cryptoStore.setToCurrency(e.target.value);
   };
-
-  const handleToAmountChange = (event) => {
-    const amount = parseFloat(event.target.value);
-    if (!isNaN(amount)) {
-      currencyConverterStore.setToAmount(amount);
-    }
-  };
+  
 
   return (
-    <Paper>
+    <Paper className="conventer-block">
       <div className="select-conventor">
         <FormControl sx={{ m: 1 }} variant="standard">
           <TextField
             id="outlined-basic"
             label="Сумма"
             helperText="Введите сумму"
-            value={currencyConverterStore.fromAmount}
+            value={cryptoStore.fromAmount}
             onChange={handleFromAmountChange}
           />
         </FormControl>
@@ -140,12 +203,13 @@ const CurrencyConverter = observer(() => {
             id="outlined-select-currency"
             select
             label="Валюта"
-            value={currencyConverterStore.fromCurrency}
+            value={cryptoStore.fromCurrency}
             onChange={handleFromCurrencyChange}
+            helperText="Выберите валюту"
           >
-            {currencies.map((currency) => (
-              <MenuItem key={currency} value={currency}>
-                {currency}
+            {cryptoStore.allCoins.map((option) => (
+              <MenuItem key={option.name} value={option.name}>
+                {option.name}
               </MenuItem>
             ))}
           </TextField>
@@ -155,9 +219,11 @@ const CurrencyConverter = observer(() => {
         <FormControl sx={{ m: 1 }} variant="standard">
           <TextField
             id="outlined-basic"
-            label="Сумма"
-            value={currencyConverterStore.toAmount || currencyConverterStore.convertedAmount}
-            onChange={handleToAmountChange}
+            label="Результат"
+            value={cryptoStore.toAmount.toFixed(6)}
+            InputProps={{
+              readOnly: true,
+            }}
           />
         </FormControl>
         <FormControl sx={{ m: 1 }} variant="standard">
@@ -165,12 +231,13 @@ const CurrencyConverter = observer(() => {
             id="outlined-select-currency"
             select
             label="Валюта"
-            value={currencyConverterStore.toCurrency}
+            value={cryptoStore.toCurrency}
             onChange={handleToCurrencyChange}
+            helperText="Выберите валюту"
           >
-            {currencies.map((currency) => (
-              <MenuItem key={currency} value={currency}>
-                {currency}
+            {cryptoStore.allCoins.map((option) => (
+              <MenuItem key={option.name} value={option.name}>
+                {option.name}
               </MenuItem>
             ))}
           </TextField>
@@ -180,4 +247,4 @@ const CurrencyConverter = observer(() => {
   );
 });
 
-export default CurrencyConverter;
+export default ConventerBlock;

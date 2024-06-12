@@ -1,35 +1,59 @@
 .currency-converter {
-  width: 400px;
-  margin: auto;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  text-align: center;
+  margin-top: 25px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 500px;
+  background-color: #f3f3f3;
 }
 
-.currency-selection {
-  margin-top: 15px;
-  margin-bottom: 20px;
+.name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.currency-selection label {
-  display: block;
-  margin-bottom: 5px;
+.converter-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  justify-content: space-between; /* Ensures items are spaced out */
 }
 
-.currency-selection select {
-  width: 100%;
-  padding: 5px;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-}
-
-.amount-input {
-  margin-bottom: 20px;
-}
-
-.converted-amount {
+.currency-label {
+  margin-left: 10px;
+  width: 60px;
   font-weight: bold;
-  margin-top: 20px;
+}
+
+.currency-name {
+  font-size: 0.9em;
+  color: #666;
+  margin-left: 10px;
+  flex-grow: 1; /* Ensures the name takes available space */
+}
+
+.remove-btn {
+  margin-left: auto;
+}
+
+.add-currency-btn {
+  display: flex;
+  align-items: center;
+  background: none;
+  border: none;
+  color: #007bff;
+  font-size: 1em;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.add-currency-btn:hover {
+  color: #0056b3;
+}
+
+.add-currency-btn:before {
+  content: "+";
+  font-size: 1.2em;
+  margin-right: 5px;
 }

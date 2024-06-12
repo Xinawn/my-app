@@ -1,0 +1,20 @@
+.small-currency-table {
+    text-align: center;
+    margin: 0 auto;
+    max-width: 1200px;
+  }
+  
+  .small-currency-table table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .small-currency-table th,
+  .small-currency-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  .small-currency-table th {
+    background-color: rgb(211, 127, 255);
+  }

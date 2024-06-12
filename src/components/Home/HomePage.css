@@ -60,7 +60,11 @@ body {
   /* Конвертер валют */
   .home-converter {
     margin-top: 40px;
-    margin-right: 20px;
+    /* text-align: center; */
+  }
+
+  .small-currency-table {
+    margin-top: 40px;
   }
   
   /* Форма подписки */

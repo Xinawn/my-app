@@ -1,0 +1,27 @@
+/* CurrencyDynamics.css */
+
+.currency-dynamics {
+    margin-top: 20px;
+  }
+  
+  .date-pickers {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .currency-dynamics table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .currency-dynamics th,
+  .currency-dynamics td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+  }
+  
+  .currency-dynamics th {
+    background-color: #f2f2f2;
+  }
